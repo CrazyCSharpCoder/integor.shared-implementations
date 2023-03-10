@@ -1,4 +1,7 @@
-﻿using IntegorErrorsHandling;
+﻿using System.Collections.Generic;
+using System.Linq;
+
+using IntegorErrorsHandling;
 using IntegorResponseDecoration;
 
 namespace IntegorSharedResponseDecorators.Decorators

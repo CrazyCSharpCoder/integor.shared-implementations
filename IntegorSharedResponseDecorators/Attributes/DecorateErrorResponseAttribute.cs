@@ -1,4 +1,7 @@
-﻿using IntegorResponseDecoration;
+﻿using System;
+using System.Linq;
+
+using IntegorResponseDecoration;
 
 namespace IntegorSharedResponseDecorators.Attributes
 {
