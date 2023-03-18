@@ -9,16 +9,16 @@ using IntegorResponseDecoration;
 
 namespace IntegorSharedResponseDecorators.Decorators.Authorization
 {
-    public class UserResponseBodyDecorator : IResponseBodyDecorator
-    {
-        public ResponseBodyDecorationResult Decorate(object? bodyObject)
+    public class UserResponseBodyDecorator : IResponseObjectDecorator
+	{
+        public ResponseBodyDecorationResult Decorate(object? responseObject)
         {
-            if (bodyObject is not UserAccountInfoDto)
+            if (responseObject is not UserAccountInfoDto)
                 return new ResponseBodyDecorationResult(false);
 
             object newBody = new
             {
-                user = bodyObject
+                user = responseObject
             };
 
             return new ResponseBodyDecorationResult(newBody);

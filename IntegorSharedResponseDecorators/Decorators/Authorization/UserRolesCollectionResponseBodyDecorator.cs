@@ -9,19 +9,19 @@ using IntegorPublicDto.Authorization.Roles;
 
 namespace IntegorSharedResponseDecorators.Decorators.Authorization
 {
-    public class UserRolesCollectionResponseBodyDecorator : IResponseBodyDecorator
-    {
-        public ResponseBodyDecorationResult Decorate(object? bodyObject)
+    public class UserRolesCollectionResponseBodyDecorator : IResponseObjectDecorator
+	{
+        public ResponseBodyDecorationResult Decorate(object? responseObject)
         {
-            if (bodyObject is not IEnumerable<UserRoleFullDto> &&
-                bodyObject is not IEnumerable<UserRoleShortDto>)
+            if (responseObject is not IEnumerable<UserRoleFullDto> &&
+                responseObject is not IEnumerable<UserRoleShortDto>)
             {
                 return new ResponseBodyDecorationResult(false);
             }
 
             object newBody = new
             {
-                roles = bodyObject
+                roles = responseObject
             };
 
             return new ResponseBodyDecorationResult(newBody);
