@@ -6,7 +6,7 @@ using IntegorResponseDecoration;
 
 namespace IntegorSharedResponseDecorators.Decorators
 {
-	public class ErrorResponseBodyDecorator : IResponseBodyDecorator
+	public class ErrorResponseBodyDecorator : IResponseObjectDecorator
 	{
 		private IResponseErrorObjectCompiler _errorCompiler;
 
@@ -15,16 +15,16 @@ namespace IntegorSharedResponseDecorators.Decorators
 			_errorCompiler = errorCompiler;
 		}
 
-		public ResponseBodyDecorationResult Decorate(object? bodyObject)
+		public ResponseBodyDecorationResult Decorate(object? responseObject)
 		{
-			if (bodyObject == null)
+			if (responseObject == null)
 				return new ResponseBodyDecorationResult(false);
 
 			IEnumerable<IErrorConvertationResult> errors;
 
-			if (bodyObject is IEnumerable<IErrorConvertationResult> bodyErrors)
+			if (responseObject is IEnumerable<IErrorConvertationResult> bodyErrors)
 				errors = bodyErrors;
-			else if (bodyObject is IErrorConvertationResult bodyError)
+			else if (responseObject is IErrorConvertationResult bodyError)
 				errors = new IErrorConvertationResult[] { bodyError };
 			else
 				return new ResponseBodyDecorationResult(false);

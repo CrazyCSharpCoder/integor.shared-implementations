@@ -13,10 +13,5 @@ namespace IntegorSharedResponseDecorators.Attributes
 			: base(typeof(ErrorResponseBodyDecorator))
 		{
 		}
-
-		public DecorateErrorResponseAttribute(params Type[] decoratorTypes)
-			: base(decoratorTypes.Append(typeof(ErrorResponseBodyDecorator)).ToArray())
-		{
-		}
 	}
 }
