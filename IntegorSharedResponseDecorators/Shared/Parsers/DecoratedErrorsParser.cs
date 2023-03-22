@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using System.Text.Json;
 
 using IntegorErrorsHandling;
-using IntegorResponseDecoration;
+using IntegorResponseDecoration.Parsing;
 
 namespace IntegorSharedResponseDecorators.Shared.Parsers
 {
-	public class DecoratedErrorsParser : IDecoratedObjectParser<JsonElement>
+	public class DecoratedErrorsParser :
+		DecoratedObjectParserBase<IEnumerable<IResponseError>>,
+		IDecoratedObjectParser<IEnumerable<IResponseError>, JsonElement>
 	{
 		private IHttpErrorObjectParser<JsonElement> _errorsParser;
 
@@ -19,14 +21,14 @@ namespace IntegorSharedResponseDecorators.Shared.Parsers
 			_errorsParser = errorsParser;
         }
 
-        public ResponseObjectDecorationResult ParseDecorated(JsonElement decoratedObject)
+        public DecoratedObjectParsingResult<IEnumerable<IResponseError>> ParseDecorated(JsonElement decoratedObject)
 		{
 			IEnumerable<IResponseError>? errors = _errorsParser.GetErrors(decoratedObject);
 
 			if (errors == null)
-				return new ResponseObjectDecorationResult(false);
+				return Result(false);
 
-			return new ResponseObjectDecorationResult(errors);
+			return Result(errors);
 		}
 	}
 }

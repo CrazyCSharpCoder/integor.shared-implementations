@@ -5,15 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 
-using IntegorResponseDecoration;
+using IntegorPublicDto.Authorization.Users;
+using IntegorResponseDecoration.Parsing;
 
 namespace IntegorSharedResponseDecorators.Authorization.Parsers
 {
 	using Internal;
 
-	public class DecoratedUserParser : IDecoratedObjectParser<JsonElement>
+	public class DecoratedUserParser :
+		DecoratedObjectParserBase<UserAccountInfoDto>,
+		IDecoratedObjectParser<UserAccountInfoDto, JsonElement>
 	{
-		public ResponseObjectDecorationResult ParseDecorated(JsonElement decoratedObject)
+		public DecoratedObjectParsingResult<UserAccountInfoDto> ParseDecorated(JsonElement decoratedObject)
 		{
 			JsonSerializerOptions options = new JsonSerializerOptions()
 			{
@@ -24,9 +27,9 @@ namespace IntegorSharedResponseDecorators.Authorization.Parsers
 				decoratedObject.Deserialize<UserDecorationWrapper>(options);
 
 			if (userWrapper?.User == null)
-				return new ResponseObjectDecorationResult(false);
+				return Result(false);
 
-			return new ResponseObjectDecorationResult(userWrapper.User);
+			return Result(userWrapper.User);
 		}
 	}
 }
