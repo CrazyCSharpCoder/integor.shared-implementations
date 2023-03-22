@@ -23,7 +23,7 @@ namespace IntegorSharedResponseDecorators.Authorization.Parsers
 			UserDecorationWrapper? userWrapper =
 				decoratedObject.Deserialize<UserDecorationWrapper>(options);
 
-			if (userWrapper == null)
+			if (userWrapper?.User == null)
 				return new ResponseObjectDecorationResult(false);
 
 			return new ResponseObjectDecorationResult(userWrapper.User);

@@ -18,7 +18,7 @@ namespace IntegorSharedResponseDecorators.Authorization.Parsers
 			UserRolesEnumerableDecorationWrapper? rolesWrapper =
 				decoratedObject.Deserialize<UserRolesEnumerableDecorationWrapper>();
 
-			if (rolesWrapper == null)
+			if (rolesWrapper?.Roles == null)
 				return new ResponseObjectDecorationResult(false);
 
 			return new ResponseObjectDecorationResult(rolesWrapper.Roles);
