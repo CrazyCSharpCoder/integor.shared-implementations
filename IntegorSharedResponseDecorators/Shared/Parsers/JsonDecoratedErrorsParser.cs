@@ -10,13 +10,13 @@ using IntegorResponseDecoration.Parsing;
 
 namespace IntegorSharedResponseDecorators.Shared.Parsers
 {
-	public class DecoratedErrorsParser :
+	public class JsonDecoratedErrorsParser :
 		DecoratedObjectParserBase<IEnumerable<IResponseError>>,
 		IDecoratedObjectParser<IEnumerable<IResponseError>, JsonElement>
 	{
 		private IHttpErrorObjectParser<JsonElement> _errorsParser;
 
-		public DecoratedErrorsParser(IHttpErrorObjectParser<JsonElement> errorsParser)
+		public JsonDecoratedErrorsParser(IHttpErrorObjectParser<JsonElement> errorsParser)
         {
 			_errorsParser = errorsParser;
         }

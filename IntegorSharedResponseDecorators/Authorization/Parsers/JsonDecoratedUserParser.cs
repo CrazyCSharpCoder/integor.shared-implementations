@@ -12,7 +12,7 @@ namespace IntegorSharedResponseDecorators.Authorization.Parsers
 {
 	using Internal;
 
-	public class DecoratedUserParser :
+	public class JsonDecoratedUserParser :
 		DecoratedObjectParserBase<UserAccountInfoDto>,
 		IDecoratedObjectParser<UserAccountInfoDto, JsonElement>
 	{
