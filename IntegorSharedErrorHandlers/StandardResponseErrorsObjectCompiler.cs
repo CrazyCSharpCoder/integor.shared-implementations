@@ -9,7 +9,7 @@ using IntegorErrorsHandling;
 
 namespace IntegorSharedErrorHandlers
 {
-	public class StandardResponseErrorObjectCompiler : IResponseErrorObjectCompiler
+	public class StandardResponseErrorsObjectCompiler : IResponseErrorsObjectCompiler
 	{
 		public object CompileResponse(params IResponseError[] errors)
 		{

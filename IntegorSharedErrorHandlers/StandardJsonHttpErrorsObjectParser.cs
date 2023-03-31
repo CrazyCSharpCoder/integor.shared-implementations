@@ -11,11 +11,11 @@ using IntegorErrorsHandling.ExtensibleError;
 
 namespace IntegorSharedErrorHandlers
 {
-    public class StandardJsonHttpErrorObjectParser : IHttpErrorObjectParser<JsonElement>
+    public class StandardJsonHttpErrorsObjectParser : IHttpErrorsObjectParser<JsonElement>
 	{
 		private IErrorParser<JsonError, JsonElement> _errorParser;
 
-		public StandardJsonHttpErrorObjectParser(IErrorParser<JsonError, JsonElement> errorParser)
+		public StandardJsonHttpErrorsObjectParser(IErrorParser<JsonError, JsonElement> errorParser)
         {
 			_errorParser = errorParser;
         }
