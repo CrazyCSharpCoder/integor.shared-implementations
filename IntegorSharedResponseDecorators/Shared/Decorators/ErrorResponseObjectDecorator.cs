@@ -8,9 +8,9 @@ namespace IntegorSharedResponseDecorators.Shared.Decorators
 {
     public class ErrorResponseObjectDecorator : IResponseObjectDecorator
     {
-        private IResponseErrorObjectCompiler _errorCompiler;
+        private IResponseErrorsObjectCompiler _errorCompiler;
 
-        public ErrorResponseObjectDecorator(IResponseErrorObjectCompiler errorCompiler)
+        public ErrorResponseObjectDecorator(IResponseErrorsObjectCompiler errorCompiler)
         {
             _errorCompiler = errorCompiler;
         }

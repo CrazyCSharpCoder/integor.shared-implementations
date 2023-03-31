@@ -14,9 +14,9 @@ namespace IntegorSharedResponseDecorators.Shared.Parsers
 		DecoratedObjectParserBase<IEnumerable<IResponseError>>,
 		IDecoratedObjectParser<IEnumerable<IResponseError>, JsonElement>
 	{
-		private IHttpErrorObjectParser<JsonElement> _errorsParser;
+		private IHttpErrorsObjectParser<JsonElement> _errorsParser;
 
-		public JsonDecoratedErrorsParser(IHttpErrorObjectParser<JsonElement> errorsParser)
+		public JsonDecoratedErrorsParser(IHttpErrorsObjectParser<JsonElement> errorsParser)
         {
 			_errorsParser = errorsParser;
         }
