@@ -12,7 +12,7 @@ namespace IntegorSharedResponseDecorators.Authorization.Attributes
 
     public class DecorateUserResponseAttribute : ResponseObjectDecorationFilterFactory
     {
-        public DecorateUserResponseAttribute() : base(typeof(UserResponseBodyDecorator))
+        public DecorateUserResponseAttribute() : base(typeof(UserResponseObjectDecorator))
         {
         }
     }

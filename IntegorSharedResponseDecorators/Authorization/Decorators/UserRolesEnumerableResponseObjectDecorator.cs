@@ -11,7 +11,7 @@ namespace IntegorSharedResponseDecorators.Authorization.Decorators
 {
 	using Internal;
 
-    public class UserRolesEnumerableResponseBodyDecorator : IResponseObjectDecorator
+    public class UserRolesEnumerableResponseObjectDecorator : IResponseObjectDecorator
     {
         public ResponseObjectDecorationResult Decorate(object? responseObject)
         {

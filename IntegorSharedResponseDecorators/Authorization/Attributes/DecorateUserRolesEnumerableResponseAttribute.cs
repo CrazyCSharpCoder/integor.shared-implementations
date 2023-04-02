@@ -13,7 +13,7 @@ namespace IntegorSharedResponseDecorators.Authorization.Attributes
     public class DecorateUserRolesEnumerableResponseAttribute : ResponseObjectDecorationFilterFactory
     {
         public DecorateUserRolesEnumerableResponseAttribute()
-            : base(typeof(UserRolesEnumerableResponseBodyDecorator))
+            : base(typeof(UserRolesEnumerableResponseObjectDecorator))
         {
         }
     }

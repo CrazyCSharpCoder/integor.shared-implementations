@@ -6,11 +6,11 @@ using IntegorResponseDecoration;
 
 namespace IntegorSharedResponseDecorators.Shared.Decorators
 {
-    public class ErrorResponseObjectDecorator : IResponseObjectDecorator
+    public class ErrorsResponseObjectDecorator : IResponseObjectDecorator
     {
         private IResponseErrorsObjectCompiler _errorCompiler;
 
-        public ErrorResponseObjectDecorator(IResponseErrorsObjectCompiler errorCompiler)
+        public ErrorsResponseObjectDecorator(IResponseErrorsObjectCompiler errorCompiler)
         {
             _errorCompiler = errorCompiler;
         }
